@@ -21,6 +21,15 @@ import java.util.Map;
             }
         }
 
+        public void deserializeInventoryFromJson(String json) {
+            try {
+                bookQuantityMap = objectMapper.readValue(json, HashMap.class);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
         public int getBookQuantity(Book book) {
             return bookCatalogue.getOrDefault(book, 0);
         }
@@ -30,20 +39,22 @@ import java.util.Map;
             // Create a BookInventory instance
             BookInventory bookInventory = new BookInventory();
 
-// Add books to the inventory
-            bookInventory.addBook(new Book("1", "Book 1", "Author 1", 2021), 5);
-            bookInventory.addBook(new Book("2", "Book 2", "Author 2", 2022), 3);
+            // Add books to the inventory
+            bookInventory.addBook(new Book("1", "Book 1", "Author 1", 2021), 10);
+            bookInventory.addBook(new Book("2", "Book 2", "Author 2", 2022), 20);
 
-// Serialize the book inventory to JSON
+            // Update the quantity of a book
+            bookInventory.updateBookQuantity(new Book("1", "Book 1", "Author 1", 2021), 15);
+
+            // Get the quantity of a book
+            System.out.println(bookInventory.getBookQuantity(new Book("1", "Book 1", "Author 1", 2021)));
+
+            // Serialize the inventory to JSON
             String json = bookInventory.serializeInventoryToJson();
             System.out.println(json);
 
-// Deserialize the JSON back into the book inventory
+            // Deserialize the JSON back into the inventory
             bookInventory.deserializeInventoryFromJson(json);
-
-// Retrieve the quantity of a book
-            int quantity = bookInventory.getBookQuantity(new Book("1", "Book 1", "Author 1", 2021));
-            System.out.println("Quantity: " + quantity);
 
         }
 
