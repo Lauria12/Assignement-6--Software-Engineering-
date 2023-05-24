@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5' // JSON serialization library
+    implementation 'com.h2database:h2:1.4.200' // Embedded database library
+    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot web framework
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // Spring Boot test framework
+}
+
+application {
+    mainClassName = 'com.example.YourMainClass' // Replace 'YourMainClass' with your actual main class name
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
