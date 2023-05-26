@@ -7,7 +7,7 @@ public class Order {
     private String bookIdentifier;
     private int quantity;
     private Date date;
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper
 
     public Order(String bookIdentifier, int quantity, Date date) {
         this.bookIdentifier = bookIdentifier;
