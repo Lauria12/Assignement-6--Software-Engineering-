@@ -10,7 +10,7 @@ public interface CatalogAPI {
 }
 
     //API for the Catalog
-    openapi: 3.0.0
+    openapi: 3.0.1
     info:
       title: Catalog API
       description: An API for managing a book catalog
