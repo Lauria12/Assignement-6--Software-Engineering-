@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5' // JSON serialization library
+    implementation 'com.faste+rxml.jackson.core:jackson-databind:2.12.5' // JSON serialization library
     implementation 'com.h2database:h2:1.4.200' // Embedded database library
     implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot web framework
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA
